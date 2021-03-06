@@ -1,14 +1,18 @@
 package com.example.demo;
 
-import javax.xml.crypto.dsig.SignatureProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.sql.*;
+
 
 public class UserDao {
     private ConnectionMaker connectionMaker;
 
     public UserDao(ConnectionMaker connectionMaker){
-        this.connectionMaker = connectionMaker;
+        this.connectionMaker =  connectionMaker;
     }
+
 
 
     public void add(User user) throws ClassNotFoundException, SQLException {
@@ -31,7 +35,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-       Connection c = connectionMaker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
         PreparedStatement ps = c.prepareStatement(
                 "select * from users where id =?");
 
@@ -65,4 +69,7 @@ public class UserDao {
 
 
 
+
+
 }
+

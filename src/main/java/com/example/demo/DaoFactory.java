@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,8 +21,9 @@ public class DaoFactory {
     public AccountDao makeAccountDao(){
         return new AccountDao(connectionMaker());
     }
+
     @Bean
     public ConnectionMaker connectionMaker(){
-        return new NConnectionMaker();
+        return new DConnectionMaker();
     }
 }
