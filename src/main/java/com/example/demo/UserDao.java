@@ -1,19 +1,14 @@
 package com.example.demo;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import java.sql.*;
 
 
 public class UserDao {
     private ConnectionMaker connectionMaker;
 
-    public UserDao(ConnectionMaker connectionMaker){
-        this.connectionMaker =  connectionMaker;
+    public void setConnectionMaker(ConnectionMaker connectionMaker){
+        this.connectionMaker = connectionMaker;
     }
-
-
 
     public void add(User user) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
