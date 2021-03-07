@@ -1,20 +1,21 @@
-package com.example.demo;
+package Spring.dao;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class CountingConnectionMaker implements ConnectionMaker{
     int count =0;
-    ConnectionMaker realConnectionMaker;
+    DataSource dataSource;
 
-    public CountingConnectionMaker(ConnectionMaker realConnectionMaker){
-        this.realConnectionMaker = realConnectionMaker;
+    public CountingConnectionMaker(DataSource dataSource){
+        this.dataSource = dataSource;
     }
 
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
         this.count ++;
-        return realConnectionMaker.makeConnection();
+        return dataSource.getConnection();
     }
     public int getCount(){
         return this.count;

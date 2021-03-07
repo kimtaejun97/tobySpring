@@ -1,6 +1,4 @@
-package com.example.demo;
-
-import org.springframework.context.annotation.Bean;
+package Spring.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

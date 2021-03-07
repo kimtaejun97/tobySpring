@@ -1,13 +1,13 @@
-package com.example.demo;
+package Spring.dao;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
 
-public class UserDaoTest {
+public class CountingUserDaoTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ApplicationContext context =new AnnotationConfigApplicationContext(DaoFactory.class);
+        ApplicationContext context =new AnnotationConfigApplicationContext(CountingDaoFactory.class);
         UserDao userDao = context.getBean("makeUserDao", UserDao.class);
         User user = new User();
         user.setId("1");
@@ -23,6 +23,9 @@ public class UserDaoTest {
 
         System.out.println(user2.getId() + " 조회 성공");
         System.out.println(user2.getName());
+
+        CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
+        System.out.println(ccm.getCount());
 
         userDao.afterTest();
 

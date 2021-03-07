@@ -1,4 +1,4 @@
-package com.example.demo;
+package Spring.dao;
 
 public class MessageDao {
     public MessageDao(ConnectionMaker connectionMaker) {
