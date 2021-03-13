@@ -27,7 +27,7 @@ public class CountingUserDaoTest {
         CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
         System.out.println(ccm.getCount());
 
-        userDao.afterTest();
+        userDao.deleteAll();
 
     }
 }
