@@ -86,7 +86,7 @@ public class UserDaoTest {
 
         userDao.add(user3);
         assertThat(userDao.getCount(), is(count +1));
-        
+
 
     }
 
